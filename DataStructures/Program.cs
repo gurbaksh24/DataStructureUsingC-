@@ -11,8 +11,7 @@ namespace DataStructures
         static void Main(string[] args)
         {
             int choice;
-            Stack stack = new Stack();
-
+            
             Console.WriteLine("------------------------Data Structures--------------------------");
             Console.WriteLine("1. Stack");
             Console.WriteLine("2. Queue");
@@ -21,22 +20,93 @@ namespace DataStructures
             switch (choice)
             {
                 case 1:
-
+                    Stack stack=new Stack();
                     Console.WriteLine("1. Add");
                     Console.WriteLine("2. Remove");
                     Console.WriteLine("3. Display");
                     Console.WriteLine("4. Sort");
                     Console.WriteLine("5. Get Top Value");
-                    choice = int.Parse(Console.ReadLine());
-                    switch (choice)
+                    Console.WriteLine("6. Exit from Stack");
+                    while (true)
                     {
-                        case 1:
-                            Console.WriteLine("Enter Element to be Inserted");
-                            stack.Add(int.Parse(Console.ReadLine()));
-                    } 
+                        choice = int.Parse(Console.ReadLine());
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter Element to be Inserted");
+                                stack.Add(int.Parse(Console.ReadLine()));
+                                break;
+                            case 2:
+                                Console.WriteLine("Removed " + stack.Remove() + " from the top of the stack");
+                                break;
+                            case 3:
+                                stack.Display();
+                                break;
+                            case 4:
+                                stack.Sort();
+                                Console.WriteLine("Sorted Stack");
+                                stack.Display();
+                                break;
+                            case 5:
+                                Console.WriteLine("The Top Value of Stack=" + stack.GetTop());
+                                break;
+                            case 6:
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("Wrong Choice");
+                                break;
+                        }
+                    }
                     break;
                 case 2:
+                    Queue queue=new Queue();
+                    Console.WriteLine("1. Add");
+                    Console.WriteLine("2. Remove");
+                    Console.WriteLine("3. Display");
+                    Console.WriteLine("4. Sort");
+                    Console.WriteLine("5. Peek");
+                    Console.WriteLine("6. Check Queue is Full");
+                    Console.WriteLine("7. Check Queue is Empty");
+                    Console.WriteLine("8. Exit from Stack");
+                    choice = int.Parse(Console.ReadLine());
+                    while (true)
+                    {
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter Element to be Inserted");
+                                queue.Add(int.Parse(Console.ReadLine()));
+                                Console.WriteLine("Data Inserted");
+                                break;
+                            case 2:
+                                Console.WriteLine("Removed " + queue.Remove() + " from the top of the stack");
+                                break;
+                            case 3:
+                                queue.Display();
+                                break;
+                            case 4:
+                                queue.Sort();
+                                Console.WriteLine("Sorted Queue");
+                                queue.Display();
+                                break;
+                            case 5:
+                                Console.WriteLine("The Top Value of Stack=" + queue.Peek());
+                                break;
+                            case 6:
+                                queue.IsFull();
+                                break;
+                            case 7:
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("Wrong Choice");
+                                break;
+                        }
+                    }
                     break;
+                case 3:
+
                 default:
                     break;
             }

@@ -9,7 +9,7 @@ namespace DataStructures
     interface ICommonMethods
     {
         void Add(int data);
-        void Remove();
+        int Remove();
         void Display();
         void Sort();
 

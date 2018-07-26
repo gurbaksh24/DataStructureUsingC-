@@ -20,15 +20,16 @@ namespace DataStructures
             switch (choice)
             {
                 case 1:
-                    Stack stack=new Stack();
-                    Console.WriteLine("1. Add");
-                    Console.WriteLine("2. Remove");
-                    Console.WriteLine("3. Display");
-                    Console.WriteLine("4. Sort");
-                    Console.WriteLine("5. Get Top Value");
-                    Console.WriteLine("6. Exit from Stack");
+                    Stack stack = new Stack();
                     while (true)
                     {
+                        Console.WriteLine("1. Add");
+                        Console.WriteLine("2. Remove");
+                        Console.WriteLine("3. Display");
+                        Console.WriteLine("4. Sort");
+                        Console.WriteLine("5. Get Top Value");
+                        Console.WriteLine("6. Exit from Stack");
+
                         choice = int.Parse(Console.ReadLine());
                         switch (choice)
                         {
@@ -61,17 +62,17 @@ namespace DataStructures
                     break;
                 case 2:
                     Queue queue=new Queue();
-                    Console.WriteLine("1. Add");
-                    Console.WriteLine("2. Remove");
-                    Console.WriteLine("3. Display");
-                    Console.WriteLine("4. Sort");
-                    Console.WriteLine("5. Peek");
-                    Console.WriteLine("6. Check Queue is Full");
-                    Console.WriteLine("7. Check Queue is Empty");
-                    Console.WriteLine("8. Exit from Stack");
-                    choice = int.Parse(Console.ReadLine());
                     while (true)
                     {
+                        Console.WriteLine("1. Add");
+                        Console.WriteLine("2. Remove");
+                        Console.WriteLine("3. Display");
+                        Console.WriteLine("4. Sort");
+                        Console.WriteLine("5. Peek");
+                        Console.WriteLine("6. Check Queue is Full");
+                        Console.WriteLine("7. Check Queue is Empty");
+                        Console.WriteLine("8. Exit from Queue");
+                        choice = int.Parse(Console.ReadLine());
                         switch (choice)
                         {
                             case 1:
@@ -80,7 +81,7 @@ namespace DataStructures
                                 Console.WriteLine("Data Inserted");
                                 break;
                             case 2:
-                                Console.WriteLine("Removed " + queue.Remove() + " from the top of the stack");
+                                Console.WriteLine("Removed " + queue.Remove() + " from the front of the queue");
                                 break;
                             case 3:
                                 queue.Display();
@@ -91,12 +92,21 @@ namespace DataStructures
                                 queue.Display();
                                 break;
                             case 5:
-                                Console.WriteLine("The Top Value of Stack=" + queue.Peek());
+                                Console.WriteLine("The Front Value of Queue=" + queue.Peek());
                                 break;
                             case 6:
-                                queue.IsFull();
+                                if(queue.IsFull())
+                                    Console.WriteLine("Queue is full");
+                                else
+                                    Console.WriteLine("Queue is not full");
                                 break;
                             case 7:
+                                if(queue.IsEmpty())
+                                    Console.WriteLine("Queue is empty");
+                                else
+                                    Console.WriteLine("Queue is not empty");
+                                break;
+                            case 8:
                                 Environment.Exit(0);
                                 break;
                             default:

@@ -8,36 +8,113 @@ namespace DataStructures
 {
     class Queue:ICommonMethods
     {
-        public void Add(int data)
+        const int MAX = 100;
+        int[] data;
+        int front;
+        int rear;
+        public Queue()
         {
-            throw new NotImplementedException();
+            front = -1;
+            rear = -1;
+            data = new int[MAX];
+        }
+        public void Add(int value)
+        {
+            if(rear==-1)
+            {
+                front = 0;
+                rear = 0;
+                data[rear] = value;
+            }
+            else if(rear+1>=MAX)
+            {
+                Console.WriteLine("Queue Overflow");
+            }
+            else if(rear+1<MAX)
+            {
+                data[++rear] = value;
+            }
         }
 
         public int Remove()
         {
-            throw new NotImplementedException();
+            int responseData = -1;
+            if(rear==-1)
+            {
+                Console.WriteLine("Queue Underflow");
+            }
+            else
+            {
+                responseData = data[front];
+                if(front==rear)
+                {
+                    front = -1;
+                    rear = -1;
+                }
+                else
+                {
+                    front++;
+                }
+            }
+            return responseData;
         }
 
         public void Display()
         {
-            throw new NotImplementedException();
+            if (front == -1)
+            {
+                Console.WriteLine("Queue Underflow");
+            }
+            else
+            {
+                for (int index = front; index <= rear; index++)
+                {
+                    Console.Write(data[index]+"\t");
+                }
+                Console.WriteLine();
+            }
         }
 
         public void Sort()
         {
-            throw new NotImplementedException();
+            int temp;
+            for(int index1=front;index1<=rear;index1++)
+            {
+                for(int index2=front;index2<=rear-index1-1;index2++)
+                {
+                    if(data[index2]>data[index2+1])
+                    {
+                        temp = data[index2];
+                        data[index2] = data[index2 + 1];
+                        data[index2 + 1] = temp;
+                    }
+                }
+            }
         }
         public int Peek()
         {
-            return 0;
+            int responseData = -1;
+            if (front == -1)
+            {
+                Console.WriteLine("Queue Underflow");
+            }
+            else
+                responseData = data[front];
+            return responseData;
         }
         public bool IsEmpty()
         {
-            return false;
+            if (front == -1)
+                return true;
+            else
+                return false;
         }
         public bool IsFull()
         {
-            return false;
+            if (front==0&&rear + 1 >= MAX)
+                return true;
+            else
+                return false;
         }
     }
 }

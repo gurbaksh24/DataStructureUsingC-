@@ -116,7 +116,49 @@ namespace DataStructures
                     }
                     break;
                 case 3:
+                    LinkedList linkedList = new LinkedList();
+                    while (true)
+                    {
+                        Console.WriteLine("1. Add at beginning");
+                        Console.WriteLine("2. Add at end");
+                        Console.WriteLine("3. Display");
+                        Console.WriteLine("4. Sort");
+                        Console.WriteLine("5. Insert at specific location");
+                        Console.WriteLine("6. Remove from specific location");
+                        Console.WriteLine("7. Exit from Queue");
+                        choice = int.Parse(Console.ReadLine());
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter Element to be Inserted");
+                                linkedList.Add(int.Parse(Console.ReadLine()));
+                                Console.WriteLine("Data Inserted");
+                                break;
+                            case 2:
+                                Console.WriteLine("Removed " + linkedList.Remove() + " from the linked list");
+                                break;
+                            case 3:
+                                linkedList.Display();
+                                break;
+                            case 4:
+                                linkedList.Sort();
+                                Console.WriteLine("Sorted Linked List");
+                                linkedList.Display();
+                                break;
+                            case 5:
 
+                                break;
+                            case 6:
+                                break;
+                            case 7:
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("Wrong Choice");
+                                break;
+                        }
+                    }
+                    break;
                 default:
                     break;
             }

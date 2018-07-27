@@ -9,51 +9,51 @@ namespace DataStructures
     class Queue:ICommonMethods
     {
         const int MAX = 100;
-        int[] data;
-        int front;
-        int rear;
+        int[] _data;
+        int _front;
+        int _rear;
         public Queue()
         {
-            front = -1;
-            rear = -1;
-            data = new int[MAX];
+            _front = -1;
+            _rear = -1;
+            _data = new int[MAX];
         }
         public void Add(int value)
         {
-            if(rear==-1)
+            if(_rear==-1)
             {
-                front = 0;
-                rear = 0;
-                data[rear] = value;
+                _front = 0;
+                _rear = 0;
+                _data[_rear] = value;
             }
-            else if(rear+1>=MAX)
+            else if(_rear+1>=MAX)
             {
                 Console.WriteLine("Queue Overflow");
             }
-            else if(rear+1<MAX)
+            else if(_rear+1<MAX)
             {
-                data[++rear] = value;
+                _data[++_rear] = value;
             }
         }
 
         public int Remove()
         {
             int responseData = -1;
-            if(rear==-1)
+            if(_rear==-1)
             {
                 Console.WriteLine("Queue Underflow");
             }
             else
             {
-                responseData = data[front];
-                if(front==rear)
+                responseData = _data[_front];
+                if(_front==_rear)
                 {
-                    front = -1;
-                    rear = -1;
+                    _front = -1;
+                    _rear = -1;
                 }
                 else
                 {
-                    front++;
+                    _front++;
                 }
             }
             return responseData;
@@ -61,15 +61,15 @@ namespace DataStructures
 
         public void Display()
         {
-            if (front == -1)
+            if (_front == -1)
             {
                 Console.WriteLine("Queue Underflow");
             }
             else
             {
-                for (int index = front; index <= rear; index++)
+                for (int index = _front; index <= _rear; index++)
                 {
-                    Console.Write(data[index]+"\t");
+                    Console.Write(_data[index]+"\t");
                 }
                 Console.WriteLine();
             }
@@ -78,15 +78,15 @@ namespace DataStructures
         public void Sort()
         {
             int temp;
-            for(int index1=front;index1<=rear;index1++)
+            for(int index1=_front;index1<=_rear;index1++)
             {
-                for(int index2=front;index2<=rear-index1-1;index2++)
+                for(int index2=_front;index2<=_rear-index1-1;index2++)
                 {
-                    if(data[index2]>data[index2+1])
+                    if(_data[index2]>_data[index2+1])
                     {
-                        temp = data[index2];
-                        data[index2] = data[index2 + 1];
-                        data[index2 + 1] = temp;
+                        temp = _data[index2];
+                        _data[index2] = _data[index2 + 1];
+                        _data[index2 + 1] = temp;
                     }
                 }
             }
@@ -94,24 +94,24 @@ namespace DataStructures
         public int Peek()
         {
             int responseData = -1;
-            if (front == -1)
+            if (_front == -1)
             {
                 Console.WriteLine("Queue Underflow");
             }
             else
-                responseData = data[front];
+                responseData = _data[_front];
             return responseData;
         }
         public bool IsEmpty()
         {
-            if (front == -1)
+            if (_front == -1)
                 return true;
             else
                 return false;
         }
         public bool IsFull()
         {
-            if (front==0&&rear + 1 >= MAX)
+            if (_front==0&&_rear + 1 >= MAX)
                 return true;
             else
                 return false;

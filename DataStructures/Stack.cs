@@ -11,32 +11,32 @@ namespace DataStructures
     {
         const int MAX = 100;
         int []data=new int[MAX];
-        int top;
+        int _top;
         public Stack()
         {
-            top = -1;
+            _top = -1;
         }
         public void Add(int value)
         {
-            if(top>=MAX)
+            if(_top>=MAX)
             {
                 Console.WriteLine("Stack Overflow");
             }
             else
             {
-                data[++top] = value;
+                data[++_top] = value;
             }
         }
 
         public void Display()
         {
-            if (top <= -1)
+            if (_top <= -1)
             {
                 Console.WriteLine("Stack Underflow");
             }
             else
             {
-                for (int index = top; index >= 0; index--)
+                for (int index = _top; index >= 0; index--)
                 {
                     Console.WriteLine(data[index]);
                 }
@@ -46,13 +46,13 @@ namespace DataStructures
         public int Remove()
         {
             int responseData=-1;
-            if(top<=-1)
+            if(_top<=-1)
             {
                 Console.WriteLine("Stack Underflow");
             }
             else
             {
-                responseData = data[top--];
+                responseData = data[_top--];
             }
             return responseData; 
         }
@@ -60,9 +60,9 @@ namespace DataStructures
         public void Sort()
         {
             int temp;
-            for(int index1=0;index1<=top;index1++)
+            for(int index1=0;index1<=_top;index1++)
             {
-                for(int index2=0;index2<=top-index1-1;index2++)
+                for(int index2=0;index2<=_top-index1-1;index2++)
                 {
                     if(data[index2]>data[index2+1])
                     {
@@ -76,13 +76,13 @@ namespace DataStructures
         public int GetTop()
         {
             int resonseData = -1;
-            if(top<=-1)
+            if(_top<=-1)
             {
                 Console.WriteLine("Stack Underflow");
             }
             else
             {
-                resonseData = data[top];
+                resonseData = data[_top];
             }
             return resonseData;
         }

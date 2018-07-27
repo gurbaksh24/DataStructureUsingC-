@@ -1,128 +1,129 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures
 {
     class Node
     {
-        int data;
-        Node next;
-        
-        public Node()
+        int _data;
+        Node _link;
+
+        public Node(int data)
         {
-            next = null;
-            data = 0;
-        }
-        public Node(int data,Node link)
-        {
-            this.data = data;
-            next = link;
-        }
-        public int Data
-        {
-            get { return data; }
-            set { data = value; }
+            this.Data = data;
         }
 
-        internal Node Next
-        {
-            get { return next; }
-            set { next = value; }
-        }
-
+        public int Data { get => _data; set => _data = value; }
+        internal Node Link { get => _link; set => _link = value; }
     }
-    class LinkedList:ICommonMethods
+    class LinkedList : ICommonMethods
     {
-        Node start;
-        Node end;
-        int size;
-
-        public LinkedList()
-        {
-            start = null;
-            end = null;
-            size = 0;
-        }
+        static Node head = null;
+        
         public void Add(int data)
         {
-            Node newNode = new Node(data,null);
-            size++;
-            if(start==null)
-            {
-                start = newNode;
-                end = start;
-            }
-            else
-            {
-                newNode.Next = start;
-                start = newNode;
-            }
+            Node newNode = new Node(data);
+            newNode.Link = head;
+            head = newNode;
         }
 
-        public void AddAtEnd(int data)
-        {
-            Node newNode = new Node(data, null);
-            size++;
-            if(start==null)
-            {
-                start = newNode;
-                end = start;
-            }
-            else
-            {
-                end.Next = newNode;
-                end = newNode;
-            }
-        }
         public int Remove()
         {
-            if (size == 0)
-            {
-                Console.WriteLine("Linked List is empty");
-                return 0;
-            }
-            else
-            {
-                start = start.Next;
-                return 1;
-            }
-
-        }
-        public int RemoveAtEnd()
-        {
-            if (size == 0)
-            {
-                Console.WriteLine("Linked List is empty");
-                return 0;
-            }
-            else
-            {
-                end = start.Next;
-                return 1;
-            }s
-
+            int data = head.Data;
+            head = head.Link;
+            return data;
         }
         public void Display()
         {
-            if(size==0)
+            if (head == null)
             {
                 Console.WriteLine("Linked List Underflow");
-                return;
             }
-            if(start.Next==null)
+            Node disp = head;
+            while (disp != null)
             {
-                Console.WriteLine(start.Data);
-                return;
+                Console.WriteLine(disp.Data + "\t");
+                disp = disp.Link;
             }
-            Node ref=start;
         }
-
         public void Sort()
         {
-            throw new NotImplementedException();
+            int size=Size();
+            for(int index1=0;index1<size;index1++)
+            {
+                int temp;
+                Node temporaryNode = head;
+                Node next = head.Link;
+                for(int index2=0;index2<size-1;index2++)
+                {
+                    if(temporaryNode.Data>next.Data)
+                    {
+                        temp = temporaryNode.Data;
+                        temporaryNode.Data = next.Data;
+                        next.Data = temp;
+                    }
+                    temporaryNode = next;
+                    next = next.Link;
+                    
+                }
+            }
+        }
+
+        
+        public void AddDataAtPosition(int data, int index)
+        {
+            if (head == null)
+            {
+                Add(data);
+                return;
+            }
+            Node temporaryNode = head;
+            while (index>1)
+            {
+                temporaryNode = temporaryNode.Link;
+                index--;
+            }
+            Node addNode = temporaryNode.Link;
+            temporaryNode.Link = new Node(data);
+            temporaryNode.Link.Link = addNode;
+        }
+        public int RemoveAtIndex(int index)
+        {
+            Node removeNode = head;
+            int responseData=-1;
+            if(index<1)
+            {
+                Console.WriteLine("Please choose another index");
+                return -1;
+            }
+            if(index==1)
+            {
+                responseData = head.Data;
+                head = head.Link;
+                return responseData;
+            }
+            while(index>0)
+            {
+                if (removeNode == null)
+                    return -1;
+
+                removeNode = removeNode.Link;
+                index--;
+            }
+            responseData = removeNode.Data;
+            removeNode.Data = removeNode.Link.Data;
+            removeNode.Link = removeNode.Link.Link;
+            return responseData;
+        }
+        public static int Size()
+        {
+            int count=0;
+            Node temporaryNode = head;
+            while(temporaryNode!=null)
+            {
+                count++;
+                temporaryNode=temporaryNode.Link;
+            }
+            return count;
         }
     }
 }

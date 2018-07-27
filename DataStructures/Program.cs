@@ -11,7 +11,7 @@ namespace DataStructures
         static void Main(string[] args)
         {
             int choice;
-            
+            int innerChoice=0;
             Console.WriteLine("------------------------Data Structures--------------------------");
             Console.WriteLine("1. Stack");
             Console.WriteLine("2. Queue");
@@ -52,11 +52,16 @@ namespace DataStructures
                                 Console.WriteLine("The Top Value of Stack=" + stack.GetTop());
                                 break;
                             case 6:
-                                Environment.Exit(0);
+                                innerChoice = 1;
                                 break;
                             default:
                                 Console.WriteLine("Wrong Choice");
                                 break;
+                        }
+                        if (innerChoice == 1)
+                        {
+                            innerChoice = 0;
+                            break;
                         }
                     }
                     break;
@@ -107,11 +112,17 @@ namespace DataStructures
                                     Console.WriteLine("Queue is not empty");
                                 break;
                             case 8:
-                                Environment.Exit(0);
+                                innerChoice = 1;
                                 break;
                             default:
                                 Console.WriteLine("Wrong Choice");
                                 break;
+                        }
+
+                        if (innerChoice == 1)
+                        {
+                            innerChoice = 0;
+                            break;
                         }
                     }
                     break;
@@ -119,8 +130,8 @@ namespace DataStructures
                     LinkedList linkedList = new LinkedList();
                     while (true)
                     {
-                        Console.WriteLine("1. Add at beginning");
-                        Console.WriteLine("2. Add at end");
+                        Console.WriteLine("1. Add");
+                        Console.WriteLine("2. Remove");
                         Console.WriteLine("3. Display");
                         Console.WriteLine("4. Sort");
                         Console.WriteLine("5. Insert at specific location");
@@ -146,16 +157,30 @@ namespace DataStructures
                                 linkedList.Display();
                                 break;
                             case 5:
-
+                                Console.WriteLine("Enter Data");
+                                int requestData = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Enter Index");
+                                int index = int.Parse(Console.ReadLine());
+                                linkedList.AddDataAtPosition(requestData,index);
+                                Console.WriteLine("Data Inserted");
                                 break;
                             case 6:
+                                Console.WriteLine("Enter Index");
+                                int responseData=linkedList.RemoveAtIndex(int.Parse(Console.ReadLine()));
+                                Console.WriteLine("Data Removed");
                                 break;
                             case 7:
-                                Environment.Exit(0);
+                                innerChoice = 1;
                                 break;
                             default:
                                 Console.WriteLine("Wrong Choice");
                                 break;
+                        }
+
+                        if (innerChoice == 1)
+                        {
+                            innerChoice = 0;
+                            break;
                         }
                     }
                     break;

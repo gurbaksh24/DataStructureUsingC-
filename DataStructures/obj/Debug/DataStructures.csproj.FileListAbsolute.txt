@@ -4,3 +4,10 @@ C:\Users\Cyberboy\Documents\Visual Studio 2013\Projects\DataStructures\DataStruc
 C:\Users\Cyberboy\Documents\Visual Studio 2013\Projects\DataStructures\DataStructureUsingC-\DataStructures\bin\Debug\DataStructures.pdb
 C:\Users\Cyberboy\Documents\Visual Studio 2013\Projects\DataStructures\DataStructureUsingC-\DataStructures\obj\Debug\DataStructures.exe
 C:\Users\Cyberboy\Documents\Visual Studio 2013\Projects\DataStructures\DataStructureUsingC-\DataStructures\obj\Debug\DataStructures.pdb
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\bin\Debug\DataStructures.exe.config
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\bin\Debug\DataStructures.exe
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\bin\Debug\DataStructures.pdb
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\obj\Debug\DataStructures.csprojResolveAssemblyReference.cache
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\obj\Debug\DataStructures.csproj.CoreCompileInputs.cache
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\obj\Debug\DataStructures.exe
+C:\Users\ggabbi\source\repos\DataStructures\DataStructures\obj\Debug\DataStructures.pdb
